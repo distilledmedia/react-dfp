@@ -266,6 +266,7 @@ const DFPManager = Object.assign(new EventEmitter().setMaxListeners(0), {
           });
           resolve();
         });
+        this.emit('slotsLoaded', slotsToInitialize);
       });
     });
   },
