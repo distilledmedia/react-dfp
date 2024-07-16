@@ -33,6 +33,3 @@ coverage
 
 # Ignore Compass Cache
 .sass-cache
-
-# Ignore build output
-lib

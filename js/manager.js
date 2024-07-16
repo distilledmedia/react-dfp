@@ -163,9 +163,12 @@ const DFPManager = Object.assign(new EventEmitter().setMaxListeners(0), {
             const slotId = event.slot.getSlotElementId();
             this.emit('slotVisibilityChanged', { slotId, event });
           });
-          pubadsService.setPrivacySettings({
-            nonPersonalizedAds: !this.personalizedAdsEnabled(),
-          });
+          pubadsService.setRequestNonPersonalizedAds(
+            this.personalizedAdsEnabled() ? 0 : 1,
+          );
+          pubadsService.setCookieOptions(
+            this.cookiesEnabled() ? 0 : 1,
+          );
         });
       });
     }
