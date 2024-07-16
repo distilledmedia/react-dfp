@@ -1,3 +1,58 @@
+# React DFP fork
+
+This is a fork of the [react-dfp site](https://react-dfp.surge.sh/) library, as the original is no longer maintained.
+
+## Setup
+
+To setup, first ensure you are using node `v8.12`, to install modules run:
+
+```bash
+npm i
+```
+
+## Debugging
+
+In your terminal run:
+
+```bash
+# Root directory of module
+npm link
+
+# And root directory of project
+npm link @dsch/react-dfp
+```
+
+This will symlink the node module in the consuming project with the build output of this module locally. Finally you can run:
+
+```bash
+# Root direcory of module
+npm run debug
+```
+
+Which will build the module and watch for changes. When finished you can remove this symlink with:
+
+```bash
+# Root directory of project
+npm unlink --no-save @dsch/react-dfp
+
+# And root directory of module
+npm unlink
+```
+
+## Updating
+
+When changes have been made, the version in the `package.json` should be incremented appropriately and PR opened. Once approved and merged:
+
+- check out master
+- pull most recent changes
+- run `npm publish` (this can be handled automatically by GH workflow if we configure actions on repo and add required NPM_TOKEN)
+- update the version in the consuming project
+
+If you are unsure, remember that whatever exists in the `/lib` folder at the time of publishing will be what is associated with that version.
+
+
+### BELOW IS THE ORIGINAL README
+
 # React DFP &middot; [![Build Status](https://travis-ci.org/jaanauati/react-dfp.svg?branch=master)](https://travis-ci.org/jaanauati/react-dfp) [![](https://img.shields.io/npm/dm/react-dfp.svg?label=DL)](https://github.com/jaanauati/react-dfp) [![Minizipped size](https://img.shields.io/bundlephobia/minzip/react-dfp.svg)](https://github.com/jaanauati/react-dfp) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jaanauati/react-dfp/blob/master/LICENSE) [![](https://img.shields.io/npm/dependency-version/react-dfp/peer/react.svg)](https://github.com/jaanauati/react-dfp/blob/master/LICENSE)
 
 A React implementation of the google [DFP](https://developers.google.com/doubleclick-gpt/reference "GPT Reference") API. This package is inspired in the awesome library [jquery.dfp](https://github.com/coop182/jquery.dfp.js), and aims to provide its same ease of usage but, of course, taking into consideration the react concepts & lifecycle features.
